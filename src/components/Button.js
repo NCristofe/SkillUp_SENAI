@@ -8,9 +8,6 @@ import {
 } from 'react-native';
 import { colors } from '../styles/colors';
 
-/**
- * Botão customizado com variantes: primary | secondary | outline | ghost
- */
 export default function Button({
   label,
   onPress,
@@ -75,7 +72,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
 
-  // ── Variantes ────────────────────────────────────────────────────────────
   variant_primary: {
     backgroundColor: colors.primary,
     elevation: 2,
@@ -101,12 +97,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 
-  // ── Tamanhos ─────────────────────────────────────────────────────────────
   size_sm: { paddingVertical: 8, paddingHorizontal: 16 },
   size_md: { paddingVertical: 13, paddingHorizontal: 24 },
   size_lg: { paddingVertical: 16, paddingHorizontal: 32 },
 
-  // ── Labels ───────────────────────────────────────────────────────────────
   label: { fontWeight: '700', letterSpacing: 0.3 },
   label_primary: { color: colors.textOnPrimary },
   label_secondary: { color: colors.textOnPrimary },
@@ -117,11 +111,9 @@ const styles = StyleSheet.create({
   labelSize_md: { fontSize: 15 },
   labelSize_lg: { fontSize: 17 },
 
-  // ── Estados ──────────────────────────────────────────────────────────────
   disabled: { opacity: 0.5 },
   labelDisabled: {},
 
-  // ── Conteúdo interno ─────────────────────────────────────────────────────
   content: { flexDirection: 'row', alignItems: 'center' },
   iconWrapper: { marginRight: 8 },
 });
