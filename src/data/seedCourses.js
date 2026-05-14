@@ -1,6 +1,4 @@
-// Dados iniciais dos cursos — mínimo 3 por área
 export const seedCourses = [
-  // ── DESENVOLVIMENTO WEB ──────────────────────────────────────────────
   {
     titulo: 'HTML5, CSS3 e JavaScript Essencial',
     subtitulo: 'Fundamentos da web moderna para iniciantes',
@@ -65,8 +63,6 @@ export const seedCourses = [
     modalidade: 'EAD',
     certificado: true,
   },
-
-  // ── DESENVOLVIMENTO MOBILE ───────────────────────────────────────────
   {
     titulo: 'React Native com Expo — Do Zero ao App',
     subtitulo: 'Apps multiplataforma para iOS e Android',
@@ -115,8 +111,6 @@ export const seedCourses = [
     modalidade: 'Presencial',
     certificado: true,
   },
-
-  // ── BACKEND E APIS ────────────────────────────────────────────────────
   {
     titulo: 'Node.js e Express — API REST Completa',
     subtitulo: 'Backend robusto e escalável com JavaScript',
@@ -165,8 +159,6 @@ export const seedCourses = [
     modalidade: 'EAD',
     certificado: true,
   },
-
-  // ── BANCO DE DADOS ────────────────────────────────────────────────────
   {
     titulo: 'PostgreSQL — Banco Relacional Profissional',
     subtitulo: 'Do SQL básico à administração avançada',
@@ -215,8 +207,6 @@ export const seedCourses = [
     modalidade: 'EAD',
     certificado: true,
   },
-
-  // ── DEVOPS E NUVEM ────────────────────────────────────────────────────
   {
     titulo: 'Docker e Kubernetes na Prática',
     subtitulo: 'Containerização e orquestração em produção',
