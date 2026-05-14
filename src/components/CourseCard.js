@@ -1,4 +1,3 @@
-import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors, areaColors, levelColors } from '../styles/colors';
@@ -15,7 +14,6 @@ export default function CourseCard({ course, onPress }) {
   const areaColor = areaColors[course.area] ?? colors.secondary;
   const levelColor = levelColors[course.nivel] ?? colors.info;
   const areaIcon = AREA_ICONS[course.area] ?? 'book-open-variant';
-
   const stars = Math.round(course.classificacao);
 
   return (
@@ -24,14 +22,12 @@ export default function CourseCard({ course, onPress }) {
       onPress={() => onPress(course)}
       activeOpacity={0.9}
     >
-      {/* Faixa colorida por área */}
       <View style={[styles.areaStripe, { backgroundColor: areaColor }]}>
         <MaterialCommunityIcons name={areaIcon} size={22} color="#fff" />
         <Text style={styles.areaText}>{course.area}</Text>
       </View>
 
       <View style={styles.body}>
-        {/* Título e subtítulo */}
         <Text style={styles.titulo} numberOfLines={2}>
           {course.titulo}
         </Text>
@@ -39,7 +35,6 @@ export default function CourseCard({ course, onPress }) {
           {course.subtitulo}
         </Text>
 
-        {/* Meta — nível + duração */}
         <View style={styles.metaRow}>
           <View style={[styles.levelBadge, { backgroundColor: levelColor + '22' }]}>
             <View style={[styles.levelDot, { backgroundColor: levelColor }]} />
@@ -49,25 +44,16 @@ export default function CourseCard({ course, onPress }) {
           </View>
 
           <View style={styles.metaItem}>
-            <MaterialCommunityIcons
-              name="clock-outline"
-              size={14}
-              color={colors.textMuted}
-            />
+            <MaterialCommunityIcons name="clock-outline" size={14} color={colors.textMuted} />
             <Text style={styles.metaText}>{course.duracao}</Text>
           </View>
         </View>
 
         <View style={styles.divider} />
 
-        {/* Professor + classificação */}
         <View style={styles.footer}>
           <View style={styles.professorRow}>
-            <MaterialCommunityIcons
-              name="account-tie"
-              size={15}
-              color={colors.textMuted}
-            />
+            <MaterialCommunityIcons name="account-tie" size={15} color={colors.textMuted} />
             <Text style={styles.professorText} numberOfLines={1}>
               {course.professor}
             </Text>
@@ -82,14 +68,11 @@ export default function CourseCard({ course, onPress }) {
                 color={i < stars ? colors.accent : colors.border}
               />
             ))}
-            <Text style={styles.ratingText}>
-              {course.classificacao.toFixed(1)}
-            </Text>
+            <Text style={styles.ratingText}>{course.classificacao.toFixed(1)}</Text>
           </View>
         </View>
       </View>
 
-      {/* Indicador "Ver mais" */}
       <View style={[styles.arrow, { backgroundColor: areaColor }]}>
         <MaterialCommunityIcons name="chevron-right" size={18} color="#fff" />
       </View>
@@ -110,8 +93,6 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     overflow: 'hidden',
   },
-
-  // Faixa de área
   areaStripe: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -125,8 +106,6 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     letterSpacing: 0.3,
   },
-
-  // Corpo
   body: {
     padding: 14,
     paddingRight: 36,
@@ -143,8 +122,6 @@ const styles = StyleSheet.create({
     marginTop: 4,
     lineHeight: 18,
   },
-
-  // Meta row
   metaRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -178,14 +155,11 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     marginLeft: 3,
   },
-
   divider: {
     height: 1,
     backgroundColor: colors.divider,
     marginVertical: 10,
   },
-
-  // Footer
   footer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -214,8 +188,6 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     marginLeft: 4,
   },
-
-  // Seta
   arrow: {
     position: 'absolute',
     right: 0,
