@@ -3,15 +3,11 @@ import { seedCourses } from '../data/seedCourses';
 
 let _db = null;
 
-// ── Conexão singleton ────────────────────────────────────────────────────────
-
 async function getDb() {
   if (_db) return _db;
   _db = await SQLite.openDatabaseAsync('senai_suico.db');
   return _db;
 }
-
-// ── Inicialização do banco ───────────────────────────────────────────────────
 
 export async function initDatabase() {
   const db = await getDb();
@@ -49,8 +45,6 @@ export async function initDatabase() {
   await seedIfEmpty(db);
 }
 
-// ── Seed automático ──────────────────────────────────────────────────────────
-
 async function seedIfEmpty(db) {
   const rows = await db.getAllAsync('SELECT COUNT(*) AS total FROM courses;');
   const total = rows[0]?.total ?? 0;
@@ -87,8 +81,6 @@ async function seedIfEmpty(db) {
   }
 }
 
-// ── Consultas ────────────────────────────────────────────────────────────────
-
 export async function getAllCourses() {
   const db = await getDb();
   return db.getAllAsync('SELECT * FROM courses ORDER BY area, titulo;');
@@ -96,10 +88,7 @@ export async function getAllCourses() {
 
 export async function getCourseById(id) {
   const db = await getDb();
-  const rows = await db.getAllAsync(
-    'SELECT * FROM courses WHERE id = ?;',
-    [id],
-  );
+  const rows = await db.getAllAsync('SELECT * FROM courses WHERE id = ?;', [id]);
   return rows[0] ?? null;
 }
 
@@ -124,19 +113,14 @@ export async function searchCourses(query) {
 
 export async function getAreas() {
   const db = await getDb();
-  const rows = await db.getAllAsync(
-    'SELECT DISTINCT area FROM courses ORDER BY area;',
-  );
+  const rows = await db.getAllAsync('SELECT DISTINCT area FROM courses ORDER BY area;');
   return rows.map((r) => r.area);
 }
-
-// ── Contatos ─────────────────────────────────────────────────────────────────
 
 export async function saveContact({ nome, email, telefone, mensagem }) {
   const db = await getDb();
   const result = await db.runAsync(
-    `INSERT INTO contacts (nome, email, telefone, mensagem)
-     VALUES (?, ?, ?, ?);`,
+    `INSERT INTO contacts (nome, email, telefone, mensagem) VALUES (?, ?, ?, ?);`,
     [nome, email, telefone ?? '', mensagem],
   );
   return result.lastInsertRowId;
