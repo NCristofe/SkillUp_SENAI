@@ -2,7 +2,6 @@ import { StyleSheet, Platform } from 'react-native';
 import { colors } from './colors';
 
 export const globalStyles = StyleSheet.create({
-  // Containers
   container: {
     flex: 1,
     backgroundColor: colors.background,
@@ -22,7 +21,6 @@ export const globalStyles = StyleSheet.create({
     paddingBottom: 24,
   },
 
-  // Headers
   pageHeader: {
     backgroundColor: colors.primary,
     paddingTop: Platform.OS === 'ios' ? 0 : 16,
@@ -47,7 +45,6 @@ export const globalStyles = StyleSheet.create({
     color: 'rgba(255,255,255,0.85)',
   },
 
-  // Cards
   card: {
     backgroundColor: colors.surface,
     borderRadius: 16,
@@ -61,7 +58,6 @@ export const globalStyles = StyleSheet.create({
     overflow: 'hidden',
   },
 
-  // Typography
   title: {
     fontSize: 20,
     fontWeight: '700',
@@ -89,7 +85,6 @@ export const globalStyles = StyleSheet.create({
     letterSpacing: 0.5,
   },
 
-  // Badges
   badge: {
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -102,7 +97,6 @@ export const globalStyles = StyleSheet.create({
     color: colors.textOnPrimary,
   },
 
-  // Separadores
   divider: {
     height: 1,
     backgroundColor: colors.divider,
@@ -113,7 +107,6 @@ export const globalStyles = StyleSheet.create({
     backgroundColor: colors.background,
   },
 
-  // Input
   input: {
     backgroundColor: colors.surface,
     borderRadius: 12,
@@ -143,7 +136,6 @@ export const globalStyles = StyleSheet.create({
     marginLeft: 4,
   },
 
-  // Botões
   btnPrimary: {
     backgroundColor: colors.primary,
     borderRadius: 12,
@@ -174,7 +166,6 @@ export const globalStyles = StyleSheet.create({
     fontWeight: '700',
   },
 
-  // Espaçamentos
   section: {
     paddingHorizontal: 16,
     paddingVertical: 12,
@@ -186,7 +177,6 @@ export const globalStyles = StyleSheet.create({
     marginBottom: 12,
   },
 
-  // Misc
   row: {
     flexDirection: 'row',
     alignItems: 'center',
